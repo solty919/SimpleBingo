@@ -3,4 +3,6 @@
 class Strings {
   static String bingo = "";
   static String draw = "抽選";
+  static String start = "さあ、始めましょう";
+  static String createCard = "カードを発行する";
 }

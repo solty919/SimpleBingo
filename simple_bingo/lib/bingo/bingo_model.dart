@@ -8,13 +8,9 @@ class Square {
 }
 
 class BingoModel with ChangeNotifier {
-  final squares = List<Square>(25).map((e) => Square(false, 3)).toList();
+  final squares = <Square>[];
 
-  void add() {
-    final square = Square(true, 10);
-    squares.add(square);
-    notifyListeners();
-  }
+  void fetch() async {}
 
   void toggle(Square square) {
     square.isCheck = !square.isCheck;

@@ -25,8 +25,15 @@ class BingoButton extends StatelessWidget {
       child: Container(
         color: square.isCheck || isCenter ? Colors.orange : Colors.white,
         child: OutlinedButton(
-            child: Text(square.number.toString()),
-            onPressed: () => _onTap(context)),
+            child: Text(
+              isCenter ? "★" : square.number.toString(),
+              style: TextStyle(
+                  color:
+                      square.isCheck || isCenter ? Colors.white : Colors.orange,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            ),
+            onPressed: isCenter ? null : () => _onTap(context)),
       ),
     );
   }

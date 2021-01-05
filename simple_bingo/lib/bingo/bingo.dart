@@ -5,28 +5,33 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Bingo extends StatelessWidget {
-  final _bingoTop = BingoTop();
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => BingoModel(),
       child: SingleChildScrollView(
-        child: Column(
-          children: [_bingoTop, BingoBoard(), _TestButton()],
-        ),
+        child: Body(),
       ),
     );
   }
 }
 
-class _TestButton extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () => context.read<BingoModel>().fetch());
+  }
+
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-        child: Text("Test"),
-        onPressed: () {
-          context.read<BingoModel>().add();
-        });
+    return Column(
+      children: [BingoTop(), BingoBoard()],
+    );
   }
 }
