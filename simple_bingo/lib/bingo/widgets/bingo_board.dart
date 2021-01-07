@@ -1,16 +1,19 @@
 import 'package:bingo/bingo/bingo_model.dart';
 import 'package:bingo/bingo/widgets/bingo_button.dart';
+import 'package:bingo/common/paths.dart';
 import 'package:bingo/common/strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:provider/provider.dart';
 
 class BingoBoard extends StatelessWidget {
-  final Widget startWidget = Center(
-    child: Padding(
+  final Widget Function(BuildContext) _startWidget = (context) {
+    return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
+          SizedBox(height: 64),
+          Image.asset(Paths.confetti),
+          SizedBox(height: 64),
           Text(
             Strings.start,
             style: TextStyle(color: Colors.grey[800], fontSize: 32),
@@ -22,18 +25,18 @@ class BingoBoard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
                 child: RaisedButton(
-                    child: Text(Strings.createCard), onPressed: null),
+                    color: Colors.orange,
+                    child: Text(Strings.createCard),
+                    onPressed: () => context.read<BingoModel>().fetch()),
               ))
         ],
       ),
-    ),
-  );
+    );
+  };
 
-  @override
-  Widget build(BuildContext context) {
-    final squares = context.watch<BingoModel>().squares;
-    if (squares.isEmpty) {
-      return startWidget;
+  final Widget Function(List<Square>) _boardWidget = (squares) {
+    if (squares.length != 25) {
+      return Text(Strings.unknown);
     }
 
     final List<BingoButton> column1 = squares
@@ -72,5 +75,12 @@ class BingoBoard extends StatelessWidget {
       Column(children: column4),
       Column(children: column5),
     ]);
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    final squares = context.watch<BingoModel>().squares;
+
+    return squares.isEmpty ? _startWidget(context) : _boardWidget(squares);
   }
 }

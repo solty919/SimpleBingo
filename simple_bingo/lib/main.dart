@@ -42,7 +42,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               icon: Icon(Icons.confirmation_number), label: Strings.draw),
         ],
         currentIndex: _index,
-        fixedColor: Colors.orangeAccent,
+        fixedColor: Colors.orange,
         onTap: _onTap,
         type: BottomNavigationBarType.fixed,
       ),
