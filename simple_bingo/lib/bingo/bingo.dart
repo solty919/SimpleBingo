@@ -25,7 +25,7 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero, () => context.read<BingoModel>().fetch());
+    context.read<BingoModel>().fetch();
   }
 
   @override

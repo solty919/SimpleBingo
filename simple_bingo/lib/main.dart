@@ -1,8 +1,17 @@
 import 'package:bingo/bingo/bingo.dart';
+import 'package:bingo/bingo/models/models.dart';
 import 'package:bingo/common/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() => runApp(SimpleBingo());
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(ChartAdapter());
+  Hive.registerAdapter(SquareAdapter());
+
+  runApp(SimpleBingo());
+}
 
 class SimpleBingo extends StatelessWidget {
   @override

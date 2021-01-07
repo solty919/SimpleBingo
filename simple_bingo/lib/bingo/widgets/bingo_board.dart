@@ -1,4 +1,5 @@
 import 'package:bingo/bingo/bingo_model.dart';
+import 'package:bingo/bingo/models/models.dart';
 import 'package:bingo/bingo/widgets/bingo_button.dart';
 import 'package:bingo/common/paths.dart';
 import 'package:bingo/common/strings.dart';
@@ -27,7 +28,7 @@ class BingoBoard extends StatelessWidget {
                 child: RaisedButton(
                     color: Colors.orange,
                     child: Text(Strings.createCard),
-                    onPressed: () => context.read<BingoModel>().fetch()),
+                    onPressed: () => context.read<BingoModel>().create()),
               ))
         ],
       ),
