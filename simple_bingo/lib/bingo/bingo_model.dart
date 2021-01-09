@@ -6,7 +6,7 @@ import 'package:hive/hive.dart';
 class BingoModel with ChangeNotifier {
   final squares = <Square>[];
 
-  ///ナンバリングし直す
+  //BINGOカードに数値を振る
   void create() async {
     Box<Chart> box = await Hive.openBox<Chart>(Keys.db);
     Chart chart = Chart()..squares = List.filled(25, Square(false, 20));

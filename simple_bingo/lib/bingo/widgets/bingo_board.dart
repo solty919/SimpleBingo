@@ -1,12 +1,19 @@
 import 'package:bingo/bingo/bingo_model.dart';
 import 'package:bingo/bingo/models/models.dart';
+import 'package:bingo/bingo/widgets/bingo_bottom.dart';
 import 'package:bingo/bingo/widgets/bingo_button.dart';
 import 'package:bingo/common/paths.dart';
 import 'package:bingo/common/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class BingoBoard extends StatelessWidget {
+//finalでない変数をプロパティとして持ちたいためStatefulWidget
+class BingoBoard extends StatefulWidget {
+  @override
+  _BingoBoardState createState() => _BingoBoardState();
+}
+
+class _BingoBoardState extends State<BingoBoard> {
   final Widget Function(BuildContext) _startWidget = (context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -19,7 +26,7 @@ class BingoBoard extends StatelessWidget {
             Strings.start,
             style: TextStyle(color: Colors.grey[800], fontSize: 32),
           ),
-          SizedBox(height: 32),
+          SizedBox(height: 64),
           SizedBox(
               height: 64,
               width: double.infinity,
@@ -69,18 +76,33 @@ class BingoBoard extends StatelessWidget {
         .map((square) => BingoButton(square: square))
         .toList();
 
-    return Row(children: [
-      Column(children: column1),
-      Column(children: column2),
-      Column(children: column3),
-      Column(children: column4),
-      Column(children: column5),
-    ]);
+    return Column(
+      children: [
+        Row(children: [
+          Column(children: column1),
+          Column(children: column2),
+          Column(children: column3),
+          Column(children: column4),
+          Column(children: column5),
+        ]),
+        BingoBottom(),
+      ],
+    );
   };
+
+  //最初のBuild時は描画したくないための制御変数
+  //2回目以降にChangeNotifierから更新されるのでそれを描画する
+  var isFirstBuild = true;
 
   @override
   Widget build(BuildContext context) {
+    print("!!!");
     final squares = context.watch<BingoModel>().squares;
+
+    if (isFirstBuild) {
+      isFirstBuild = false;
+      return Container();
+    }
 
     return squares.isEmpty ? _startWidget(context) : _boardWidget(squares);
   }
