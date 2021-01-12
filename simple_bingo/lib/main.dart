@@ -1,6 +1,7 @@
 import 'package:bingo/bingo/bingo.dart';
 import 'package:bingo/bingo/models/models.dart';
 import 'package:bingo/common/strings.dart';
+import 'package:bingo/draw/draw.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -35,7 +36,7 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _index = 0;
-  final _widgets = [Bingo(), Bingo()];
+  final _widgets = [Bingo(), Draw()];
 
   void _onTap(int index) => setState(() => this._index = index);
 
