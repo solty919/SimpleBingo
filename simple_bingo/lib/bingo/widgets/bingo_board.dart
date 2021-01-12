@@ -19,9 +19,9 @@ class _BingoBoardState extends State<BingoBoard> {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          SizedBox(height: 64),
+          SizedBox(height: 32),
           Image.asset(Paths.confetti),
-          SizedBox(height: 64),
+          SizedBox(height: 32),
           Text(
             Strings.start,
             style: TextStyle(color: Colors.grey[800], fontSize: 32),

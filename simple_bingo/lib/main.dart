@@ -46,7 +46,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
       appBar: AppBar(
         title: Text(
           Strings.bingo,
-          style: TextStyle(color: Colors.white),
         ),
       ),
       body: _widgets.elementAt(_index),
