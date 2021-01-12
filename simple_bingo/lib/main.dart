@@ -17,8 +17,13 @@ class SimpleBingo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.amber),
-        darkTheme: ThemeData.dark(),
+        theme: ThemeData(
+            brightness: Brightness.light, primarySwatch: Colors.amber),
+        darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            primarySwatch: Colors.amber,
+            toggleableActiveColor: Colors.amber,
+            accentColor: Colors.amber),
         home: BottomNavigation());
   }
 }
@@ -52,7 +57,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
               icon: Icon(Icons.confirmation_number), label: Strings.draw),
         ],
         currentIndex: _index,
-        fixedColor: Theme.of(context).accentColor,
         onTap: _onTap,
         type: BottomNavigationBarType.fixed,
       ),

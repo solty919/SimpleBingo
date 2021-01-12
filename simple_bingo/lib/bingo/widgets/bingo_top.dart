@@ -1,4 +1,4 @@
-import 'package:bingo/common/paths.dart';
+import 'package:bingo/common/strings.dart';
 import 'package:flutter/material.dart';
 
 class BingoTop extends StatelessWidget {
@@ -6,11 +6,11 @@ class BingoTop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+      child: Column(
         children: [
-          Text("eee"),
-          Image.asset(Paths.bingo, width: 32, height: 32)
+          SizedBox(height: 40),
+          Text("1 ${Strings.reach}"),
+          SizedBox(height: 40),
         ],
       ),
     );
