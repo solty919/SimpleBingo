@@ -15,7 +15,15 @@ class BingoTop extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 24),
-                Text("${model.reach()} ${Strings.reach}"),
+                model.isBingo()
+                    ? Text(
+                        "BINGO ✌️",
+                        style: TextStyle(fontSize: 32),
+                      )
+                    : Container(),
+                model.reach() == 0
+                    ? Text("")
+                    : Text("${model.reach()} ${Strings.reach}"),
                 SizedBox(height: 24),
               ],
             ),

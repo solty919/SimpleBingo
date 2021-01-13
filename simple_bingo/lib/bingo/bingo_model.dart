@@ -36,9 +36,32 @@ class BingoModel with ChangeNotifier {
 
   ///リーチが何個あるか数える
   int reach() {
+    return _check(_Type.Reach);
+  }
+
+  bool isBingo() {
+    final int count = _check(_Type.Bingo);
+    return count > 0;
+  }
+
+  int _check(_Type type) {
+    if (squares.length != 25) {
+      return 0;
+    }
+
+    int checkLength;
+    switch (type) {
+      case _Type.Reach:
+        checkLength = 1;
+        break;
+      case _Type.Bingo:
+        checkLength = 0;
+        break;
+    }
+
     // [ | ]方向
     // DartのsubListはendを含まない
-    final results1 = [
+    final List<bool> results1 = [
       squares.sublist(0, 5),
       squares.sublist(5, 10),
       squares.sublist(10, 15),
@@ -46,11 +69,11 @@ class BingoModel with ChangeNotifier {
       squares.sublist(20, 25)
     ]
         .map((subList) =>
-            subList.where((element) => !element.isCheck).length == 1)
+            subList.where((element) => !element.isCheck).length == checkLength)
         .toList();
 
     // [ - ]方向
-    final results2 = [
+    final List<bool> results2 = [
       [squares[0], squares[5], squares[10], squares[15], squares[20]],
       [squares[1], squares[6], squares[11], squares[16], squares[21]],
       [squares[2], squares[7], squares[12], squares[17], squares[22]],
@@ -58,23 +81,23 @@ class BingoModel with ChangeNotifier {
       [squares[4], squares[9], squares[14], squares[19], squares[24]],
     ]
         .map((subList) =>
-            subList.where((element) => !element.isCheck).length == 1)
+            subList.where((element) => !element.isCheck).length == checkLength)
         .toList();
 
     // [ / ]方向
-    final results3 = [
+    final List<bool> results3 = [
       [squares[4], squares[8], squares[12], squares[16], squares[20]],
     ]
         .map((subList) =>
-            subList.where((element) => !element.isCheck).length == 1)
+            subList.where((element) => !element.isCheck).length == checkLength)
         .toList();
 
     // [ \ ]方向
-    final results4 = [
+    final List<bool> results4 = [
       [squares[0], squares[6], squares[12], squares[18], squares[24]],
     ]
         .map((subList) =>
-            subList.where((element) => !element.isCheck).length == 1)
+            subList.where((element) => !element.isCheck).length == checkLength)
         .toList();
 
     final count = results1.where((element) => element).length +
@@ -84,4 +107,9 @@ class BingoModel with ChangeNotifier {
 
     return count;
   }
+}
+
+enum _Type {
+  Reach,
+  Bingo,
 }
