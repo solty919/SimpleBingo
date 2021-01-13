@@ -1,7 +1,7 @@
 //文字列は全てここに定義する
 
 class Strings {
-  static String bingo = "BINGO";
+  static String bingo = "";
   static String draw = "抽選";
   static String reach = "Reach!!";
   static String start = "さあ、始めましょう";
