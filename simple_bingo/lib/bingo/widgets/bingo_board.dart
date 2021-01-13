@@ -61,7 +61,12 @@ class _BingoBoardState extends State<BingoBoard> {
         .sublist(10, 15)
         .asMap()
         .map((key, square) {
-          return MapEntry(key, BingoButton(square: square, isCenter: key == 2));
+          if (key == 2) {
+            return MapEntry(key,
+                BingoButton(square: square..isCheck = true, isCenter: true));
+          } else {
+            return MapEntry(key, BingoButton(square: square));
+          }
         })
         .values
         .toList();
@@ -96,7 +101,6 @@ class _BingoBoardState extends State<BingoBoard> {
 
   @override
   Widget build(BuildContext context) {
-    print("!!!");
     final squares = context.watch<BingoModel>().squares;
 
     if (isFirstBuild) {

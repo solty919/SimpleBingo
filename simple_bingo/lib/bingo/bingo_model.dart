@@ -33,4 +33,55 @@ class BingoModel with ChangeNotifier {
     square.isCheck = !square.isCheck;
     notifyListeners();
   }
+
+  ///リーチが何個あるか数える
+  int reach() {
+    // [ | ]方向
+    // DartのsubListはendを含まない
+    final results1 = [
+      squares.sublist(0, 5),
+      squares.sublist(5, 10),
+      squares.sublist(10, 15),
+      squares.sublist(15, 20),
+      squares.sublist(20, 25)
+    ]
+        .map((subList) =>
+            subList.where((element) => !element.isCheck).length == 1)
+        .toList();
+
+    // [ - ]方向
+    final results2 = [
+      [squares[0], squares[5], squares[10], squares[15], squares[20]],
+      [squares[1], squares[6], squares[11], squares[16], squares[21]],
+      [squares[2], squares[7], squares[12], squares[17], squares[22]],
+      [squares[3], squares[8], squares[13], squares[18], squares[23]],
+      [squares[4], squares[9], squares[14], squares[19], squares[24]],
+    ]
+        .map((subList) =>
+            subList.where((element) => !element.isCheck).length == 1)
+        .toList();
+
+    // [ / ]方向
+    final results3 = [
+      [squares[4], squares[8], squares[12], squares[16], squares[20]],
+    ]
+        .map((subList) =>
+            subList.where((element) => !element.isCheck).length == 1)
+        .toList();
+
+    // [ \ ]方向
+    final results4 = [
+      [squares[0], squares[6], squares[12], squares[18], squares[24]],
+    ]
+        .map((subList) =>
+            subList.where((element) => !element.isCheck).length == 1)
+        .toList();
+
+    final count = results1.where((element) => element).length +
+        results2.where((element) => element).length +
+        results3.where((element) => element).length +
+        results4.where((element) => element).length;
+
+    return count;
+  }
 }

@@ -7,14 +7,15 @@ import '../bingo_model.dart';
 class BingoTop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return context.watch<BingoModel>().squares.isEmpty
+    final model = context.watch<BingoModel>();
+    return model.squares.isEmpty
         ? Container()
         : Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 SizedBox(height: 24),
-                Text("1 ${Strings.reach}"),
+                Text("${model.reach()} ${Strings.reach}"),
                 SizedBox(height: 24),
               ],
             ),
