@@ -1,7 +1,7 @@
 import 'package:bingo/bingo/bingo_model.dart';
-import 'package:bingo/bingo/models/models.dart';
 import 'package:bingo/bingo/widgets/bingo_bottom.dart';
 import 'package:bingo/bingo/widgets/bingo_button.dart';
+import 'package:bingo/common/models/square.dart';
 import 'package:bingo/common/paths.dart';
 import 'package:bingo/common/strings.dart';
 import 'package:flutter/material.dart';

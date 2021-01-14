@@ -1,5 +1,6 @@
-import 'package:bingo/bingo/models/models.dart';
+import 'package:bingo/bingo/models/chart.dart';
 import 'package:bingo/common/keys.dart';
+import 'package:bingo/common/models/square.dart';
 import 'package:bingo/common/number_generator.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -9,13 +10,15 @@ class BingoModel with ChangeNotifier {
 
   /// BINGOカードに数値を振る
   void create() async {
-    Box<Chart> box = await Hive.openBox<Chart>(Keys.db);
     Chart chart = Chart()
       ..squares = NumberGenerator()
           .bingoNumbers()
           .map((e) => Square(false, e))
           .toList();
+
+    Box<Chart> box = await Hive.openBox<Chart>(Keys.db);
     box.put(Keys.chart, chart);
+
     fetch();
   }
 

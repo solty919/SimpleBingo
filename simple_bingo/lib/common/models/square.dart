@@ -1,12 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'models.g.dart';
-
-@HiveType(typeId: 0)
-class Chart extends HiveObject {
-  @HiveField(0)
-  List<Square> squares;
-}
+part 'square.g.dart';
 
 @HiveType(typeId: 1)
 class Square extends HiveObject {

@@ -1,5 +1,5 @@
 import 'package:bingo/bingo/bingo_model.dart';
-import 'package:bingo/bingo/models/models.dart';
+import 'package:bingo/common/models/square.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vibration/vibration.dart';

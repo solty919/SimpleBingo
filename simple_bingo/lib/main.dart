@@ -1,5 +1,6 @@
 import 'package:bingo/bingo/bingo.dart';
-import 'package:bingo/bingo/models/models.dart';
+import 'package:bingo/bingo/models/chart.dart';
+import 'package:bingo/common/models/square.dart';
 import 'package:bingo/common/strings.dart';
 import 'package:bingo/draw/draw.dart';
 import 'package:flutter/material.dart';
