@@ -18,7 +18,6 @@ class BingoModel with ChangeNotifier {
 
     Box<Chart> box = await Hive.openBox<Chart>(Keys.db);
     box.put(Keys.chart, chart);
-
     fetch();
   }
 

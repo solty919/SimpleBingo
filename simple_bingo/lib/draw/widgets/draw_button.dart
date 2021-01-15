@@ -1,3 +1,4 @@
+import 'package:bingo/common/strings.dart';
 import 'package:bingo/draw/draw_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +20,7 @@ class DrawButton extends StatelessWidget {
                   context.read<DrawModel>().draw();
                 }
               },
-              child: empty ? Text("始める") : Text("抽選"))),
+              child: Text(Strings.draw))),
     );
   }
 }

@@ -14,18 +14,22 @@ class DrawCollection extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           return Builder(builder: (context) {
-            final square = context
-                .select((DrawModel model) => model.list.elementAt(index));
+            final isCheck = context.select(
+                (DrawModel model) => model.list.elementAt(index).isCheck);
+            final number = context.select(
+                (DrawModel model) => model.list.elementAt(index).number);
             return Padding(
               padding: const EdgeInsets.all(3.0),
               child: Container(
                 decoration: BoxDecoration(
                     border: Border.all(
-                        color: Theme.of(context).textTheme.headline6.color),
+                        color: isCheck
+                            ? Theme.of(context).buttonColor
+                            : Theme.of(context).textTheme.headline6.color),
                     borderRadius: BorderRadius.circular(8)),
                 child: Center(
                   child: Text(
-                    square.number.toString(),
+                    number.toString(),
                     style: TextStyle(fontSize: 16),
                   ),
                 ),

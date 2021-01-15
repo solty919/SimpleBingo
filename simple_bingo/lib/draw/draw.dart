@@ -1,6 +1,7 @@
 import 'package:bingo/draw/draw_model.dart';
 import 'package:bingo/draw/widgets/draw_button.dart';
 import 'package:bingo/draw/widgets/draw_collection.dart';
+import 'package:bingo/draw/widgets/draw_reset.dart';
 import 'package:bingo/draw/widgets/draw_title.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,7 @@ class _BodyState extends State<Body> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
-        children: [DrawTitle(), DrawButton(), DrawCollection()],
+        children: [DrawTitle(), DrawButton(), DrawCollection(), Reset()],
       ),
     );
   }

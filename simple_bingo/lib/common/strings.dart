@@ -9,6 +9,9 @@ class Strings {
   static String numbering = "番号を振り直す";
   static String recreateCard = "番号を振り直しますか？";
 
+  static String reset = "リセット";
+  static String recreateDraw = "リセットしますか？";
+
   //Error
   static String unknown = "不明なエラー";
 
