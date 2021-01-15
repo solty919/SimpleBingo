@@ -22,10 +22,10 @@ class DrawCollection extends StatelessWidget {
               padding: const EdgeInsets.all(3.0),
               child: Container(
                 decoration: BoxDecoration(
-                    border: Border.all(
-                        color: isCheck
-                            ? Theme.of(context).buttonColor
-                            : Theme.of(context).textTheme.headline6.color),
+                    border: isCheck
+                        ? Border.all(
+                            color: Theme.of(context).buttonColor, width: 2)
+                        : null,
                     borderRadius: BorderRadius.circular(8)),
                 child: Center(
                   child: Text(

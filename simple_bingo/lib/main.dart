@@ -24,6 +24,7 @@ class SimpleBingo extends StatelessWidget {
         theme: ThemeData(
             brightness: Brightness.light,
             primarySwatch: Colors.amber,
+            buttonColor: Colors.amber,
             textTheme: TextTheme(bodyText2: TextStyle(color: Colors.black87))),
         darkTheme: ThemeData(
             brightness: Brightness.dark,

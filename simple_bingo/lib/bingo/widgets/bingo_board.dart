@@ -24,7 +24,7 @@ class _BingoBoardState extends State<BingoBoard> {
           SizedBox(height: 32),
           Text(
             Strings.start,
-            style: TextStyle(color: Colors.grey[800], fontSize: 32),
+            style: TextStyle(fontSize: 32),
           ),
           SizedBox(height: 64),
           SizedBox(
@@ -33,7 +33,6 @@ class _BingoBoardState extends State<BingoBoard> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
                 child: RaisedButton(
-                    color: Colors.orange,
                     child: Text(Strings.createCard),
                     onPressed: () => context.read<BingoModel>().create()),
               ))
