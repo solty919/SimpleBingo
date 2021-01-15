@@ -42,7 +42,7 @@ class BingoModel with ChangeNotifier {
   }
 
   ///ビンゴしているかを判定
-  bool isBingo() {
+  bool get isBingo {
     final int count = _check(_Type.Bingo);
     return count > 0;
   }

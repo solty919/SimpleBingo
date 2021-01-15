@@ -1,5 +1,6 @@
 import 'package:bingo/bingo/bingo_model.dart';
 import 'package:bingo/bingo/widgets/bingo_board.dart';
+import 'package:bingo/bingo/widgets/bingo_confetti.dart';
 import 'package:bingo/bingo/widgets/bingo_top.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -30,8 +31,14 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [BingoTop(), BingoBoard()],
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Column(
+          children: [BingoTop(), BingoBoard()],
+        ),
+        BingoConfetti(),
+      ],
     );
   }
 }

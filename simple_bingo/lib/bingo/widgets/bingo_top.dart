@@ -15,7 +15,7 @@ class BingoTop extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 24),
-                model.isBingo()
+                model.isBingo
                     ? Text(
                         "BINGO ✌️",
                         style: TextStyle(fontSize: 32),
