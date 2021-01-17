@@ -1,8 +1,8 @@
 import 'package:bingo/bingo/bingo_model.dart';
 import 'package:bingo/common/models/square.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:vibration/vibration.dart';
 
 class BingoButton extends StatelessWidget {
   BingoButton({this.square, this.isCenter = false});
@@ -10,9 +10,7 @@ class BingoButton extends StatelessWidget {
   final bool isCenter;
 
   void _onTap(BuildContext context) async {
-    if (await Vibration.hasVibrator()) {
-      Vibration.vibrate();
-    }
+    HapticFeedback.heavyImpact();
     context.read<BingoModel>().toggle(square);
   }
 
@@ -24,10 +22,13 @@ class BingoButton extends StatelessWidget {
       height: deviceSize.width / 5,
       padding: EdgeInsets.all(1),
       child: Container(
-        color: square.isCheck || isCenter
-            ? Theme.of(context).toggleableActiveColor
-            : Theme.of(context).scaffoldBackgroundColor,
-        child: OutlinedButton(
+        decoration: BoxDecoration(
+          color: square.isCheck || isCenter
+              ? Theme.of(context).toggleableActiveColor
+              : Theme.of(context).scaffoldBackgroundColor,
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: FlatButton(
             child: Text(
               isCenter ? "★" : square.number.toString(),
               style: TextStyle(

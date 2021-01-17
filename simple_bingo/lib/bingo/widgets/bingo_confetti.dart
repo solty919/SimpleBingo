@@ -35,7 +35,7 @@ class _BingoConfettiState extends State<BingoConfetti> {
     return ConfettiWidget(
       confettiController: _controller,
       blastDirectionality: BlastDirectionality.explosive,
-      emissionFrequency: 10 / 100,
+      emissionFrequency: 5 / 100,
       colors: const [
         Colors.green,
         Colors.blue,

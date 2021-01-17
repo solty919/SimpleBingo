@@ -25,7 +25,6 @@ class DrawModel with ChangeNotifier {
       square.isCheck = !square.isCheck;
       Box<Drawn> box = await Hive.openBox<Drawn>(Keys.draw);
       box.put(Keys.draw, Drawn(_list.toList()));
-      print(_list.map((e) => e.isCheck));
       notifyListeners();
     } catch (e) {
       return;
