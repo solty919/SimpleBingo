@@ -4,6 +4,7 @@ import 'package:bingo/bingo/widgets/bingo_button.dart';
 import 'package:bingo/common/models/square.dart';
 import 'package:bingo/common/paths.dart';
 import 'package:bingo/common/strings.dart';
+import 'package:bingo/common/widget/FadeIn.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,8 @@ class BingoBoard extends StatefulWidget {
 
 class _BingoBoardState extends State<BingoBoard> {
   final Widget Function(BuildContext) _startWidget = (context) {
-    return Padding(
+    return FadeIn(
+        child: Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
@@ -38,7 +40,7 @@ class _BingoBoardState extends State<BingoBoard> {
               ))
         ],
       ),
-    );
+    ));
   };
 
   final Widget Function(List<Square>) _boardWidget = (squares) {
