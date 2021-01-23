@@ -8,13 +8,7 @@ import 'package:bingo/common/widget/FadeIn.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-//finalでない変数をプロパティとして持ちたいためStatefulWidget
-class BingoBoard extends StatefulWidget {
-  @override
-  _BingoBoardState createState() => _BingoBoardState();
-}
-
-class _BingoBoardState extends State<BingoBoard> {
+class BingoBoard extends StatelessWidget {
   final Widget Function(BuildContext) _startWidget = (context) {
     return FadeIn(
         child: Padding(
@@ -22,7 +16,7 @@ class _BingoBoardState extends State<BingoBoard> {
       child: Column(
         children: [
           SizedBox(height: 32),
-          Image.asset(Paths.confetti),
+          Image.asset(Paths.confetti, height: 180, width: 180),
           SizedBox(height: 32),
           Text(
             Strings.start,
@@ -96,18 +90,11 @@ class _BingoBoardState extends State<BingoBoard> {
     );
   };
 
-  //最初のBuild時は描画したくないための制御変数
-  //2回目以降にChangeNotifierから更新されるのでそれを描画する
-  var isFirstBuild = true;
-
   @override
   Widget build(BuildContext context) {
     final squares = context.watch<BingoModel>().squares;
 
-    if (isFirstBuild) {
-      isFirstBuild = false;
-      return Container();
-    }
+    if (squares == null) return CircularProgressIndicator();
 
     return squares.isEmpty ? _startWidget(context) : _boardWidget(squares);
   }

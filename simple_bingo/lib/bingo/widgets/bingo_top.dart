@@ -8,7 +8,7 @@ class BingoTop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<BingoModel>();
-    return model.squares.isEmpty
+    return model.squares == null || model.squares.isEmpty
         ? Container()
         : Padding(
             padding: const EdgeInsets.all(8.0),

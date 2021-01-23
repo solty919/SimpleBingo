@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 class BingoModel with ChangeNotifier {
-  final squares = <Square>[];
+  List<Square> squares;
 
   /// BINGOカードに数値を振る
   void create() async {
@@ -25,8 +25,7 @@ class BingoModel with ChangeNotifier {
   void fetch() async {
     Box<Chart> box = await Hive.openBox<Chart>(Keys.db);
     Chart chart = box.get(Keys.chart);
-    squares.clear();
-    squares.addAll(chart?.squares ?? <Square>[]);
+    squares = chart?.squares ?? <Square>[];
     notifyListeners();
   }
 
@@ -48,7 +47,7 @@ class BingoModel with ChangeNotifier {
   }
 
   int _check(_Type type) {
-    if (squares.length != 25) {
+    if (squares == null || squares.length != 25) {
       return 0;
     }
 
