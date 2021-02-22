@@ -55,16 +55,19 @@ class _BottomNavigationState extends State<BottomNavigation> {
         ),
       ),
       body: _widgets.elementAt(_index),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.event), label: Strings.bingo),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.confirmation_number), label: Strings.draw),
-        ],
-        currentIndex: _index,
-        onTap: _onTap,
-        type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 100),
+        child: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.event), label: Strings.bingo),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.confirmation_number), label: Strings.draw),
+          ],
+          currentIndex: _index,
+          onTap: _onTap,
+          type: BottomNavigationBarType.fixed,
+        ),
       ),
     );
   }
