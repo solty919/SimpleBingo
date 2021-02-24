@@ -39,7 +39,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "jp.co.asx.simplebingo"
-        minSdkVersion 23
+        minSdkVersion 23 //参考:https://developer.android.com/guide/topics/manifest/uses-sdk-element?hl=ja
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

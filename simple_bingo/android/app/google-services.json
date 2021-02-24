@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1084955280323",
+    "project_id": "simplebingo-f547c",
+    "storage_bucket": "simplebingo-f547c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084955280323:android:eb0c177770573d7f853376",
+        "android_client_info": {
+          "package_name": "khayashida.simplebingo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1084955280323-lv2i9rafnnrdqh0lkap4dd5l34ag80it.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAne4Y6CHDThfCaRBrLtDfq7htOrRPxP2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1084955280323-lv2i9rafnnrdqh0lkap4dd5l34ag80it.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1084955280323-gf98a9c7i4b84796i60js4gpfvnur609.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "khayashida.simplebingo"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7093305833453939~3850429109"
+    }
+  ],
+  "configuration_version": "1"
+}
