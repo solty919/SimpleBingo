@@ -18,7 +18,7 @@ PODS:
     - GoogleUtilities/Logger (~> 7.0)
     - nanopb (~> 2.30907.0)
   - Flutter (1.0.0)
-  - Google-Mobile-Ads-SDK (8.1.0):
+  - Google-Mobile-Ads-SDK (7.69.0):
     - GoogleAppMeasurement (~> 7.0)
     - GoogleUserMessagingPlatform (~> 1.1)
   - GoogleAppMeasurement (7.7.0):
@@ -60,6 +60,7 @@ DEPENDENCIES:
   - firebase_admob (from `.symlinks/plugins/firebase_admob/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
+  - Google-Mobile-Ads-SDK (~> 7.69.0)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
 
 SPEC REPOS:
@@ -92,7 +93,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 4d3c72622ce0e2106aaa07bb4b2935ba2c370972
   FirebaseCoreDiagnostics: 179bf3831213451c8addd036aca7fcf5492ec154
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  Google-Mobile-Ads-SDK: efb7fb74595668fbbe680f0d1c06f9a8ff694c7c
+  Google-Mobile-Ads-SDK: 2f288748a42920d1c744946a460896a95b0e9110
   GoogleAppMeasurement: 0c3b134b2c0a90c4c24833873894bfe0e42a0384
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUserMessagingPlatform: b168e8c46cd8f92aa3e34b584c4ca78a411ce367
@@ -101,6 +102,6 @@ SPEC CHECKSUMS:
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
+PODFILE CHECKSUM: 1009bae5671f204075f74b8257baf347397d7f18
 
 COCOAPODS: 1.10.1
