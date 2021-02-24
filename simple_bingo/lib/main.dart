@@ -4,6 +4,7 @@ import 'package:bingo/common/models/square.dart';
 import 'package:bingo/common/strings.dart';
 import 'package:bingo/draw/draw.dart';
 import 'package:bingo/draw/models/drawn.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -13,6 +14,8 @@ void main() async {
   Hive.registerAdapter(ChartAdapter());
   Hive.registerAdapter(SquareAdapter());
   Hive.registerAdapter(DrawnAdapter());
+
+  FirebaseAdMob.instance.initialize(appId: "");
 
   runApp(SimpleBingo());
 }
