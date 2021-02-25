@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+///広告OFF
+bool isAd = false;
+
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(ChartAdapter());
@@ -22,6 +25,7 @@ class SimpleBingo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
             brightness: Brightness.light,
             primarySwatch: Colors.amber,
@@ -50,7 +54,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
   // iniStateではcontextにアクセスできない
   @override
   void didChangeDependencies() {
-    Admob.setup(context);
+    if (isAd) {
+      Admob.setup(context);
+    }
     super.didChangeDependencies();
   }
 
@@ -58,7 +64,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   Widget build(BuildContext context) {
     return MediaQuery.removePadding(
       context: context,
-      removeBottom: true,
+      removeBottom: isAd,
       child: Scaffold(
         appBar: AppBar(title: Text(Strings.bingo)),
         body: _widgets.elementAt(_index),
@@ -80,8 +86,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
               type: BottomNavigationBarType.fixed,
             ),
             Container(
-                height: Admob.banner.size.height.toDouble() +
-                    MediaQuery.of(context).padding.bottom,
+                height: isAd
+                    ? Admob.banner.size.height.toDouble() +
+                        MediaQuery.of(context).padding.bottom
+                    : 0,
                 color: Theme.of(context).scaffoldBackgroundColor),
           ],
         ),
