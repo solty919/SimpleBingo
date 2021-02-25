@@ -25,7 +25,7 @@ class Admob {
 
   static BannerAd _makeBanner(BuildContext context) {
     return BannerAd(
-      adUnitId: BannerAd.testAdUnitId,
+      adUnitId: _adUnitId,
       size: MediaQuery.of(context).isMobile()
           ? AdSize.banner
           : AdSize.leaderboard,
