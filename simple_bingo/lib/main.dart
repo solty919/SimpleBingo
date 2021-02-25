@@ -1,10 +1,10 @@
 import 'package:bingo/bingo/bingo.dart';
 import 'package:bingo/bingo/models/chart.dart';
+import 'package:bingo/common/admob.dart';
 import 'package:bingo/common/models/square.dart';
 import 'package:bingo/common/strings.dart';
 import 'package:bingo/draw/draw.dart';
 import 'package:bingo/draw/models/drawn.dart';
-import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -15,7 +15,7 @@ void main() async {
   Hive.registerAdapter(SquareAdapter());
   Hive.registerAdapter(DrawnAdapter());
 
-  FirebaseAdMob.instance.initialize(appId: "");
+  Admob.setup();
 
   runApp(SimpleBingo());
 }
@@ -51,6 +51,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
   @override
   Widget build(BuildContext context) {
+    final bottomPadding = MediaQuery.of(context).padding.bottom;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -58,19 +60,25 @@ class _BottomNavigationState extends State<BottomNavigation> {
         ),
       ),
       body: _widgets.elementAt(_index),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 100),
-        child: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.event), label: Strings.bingo),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.confirmation_number), label: Strings.draw),
-          ],
-          currentIndex: _index,
-          onTap: _onTap,
-          type: BottomNavigationBarType.fixed,
-        ),
+      bottomNavigationBar: Wrap(
+        children: [
+          BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.event), label: Strings.bingo),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.confirmation_number), label: Strings.draw),
+            ],
+            currentIndex: _index,
+            onTap: _onTap,
+            type: BottomNavigationBarType.fixed,
+          ),
+          Container(
+            height:
+                Admob.height(context) + MediaQuery.of(context).padding.bottom,
+            color: Colors.black,
+          ),
+        ],
       ),
     );
   }
