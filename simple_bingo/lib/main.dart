@@ -15,8 +15,6 @@ void main() async {
   Hive.registerAdapter(SquareAdapter());
   Hive.registerAdapter(DrawnAdapter());
 
-  Admob.setup();
-
   runApp(SimpleBingo());
 }
 
@@ -49,16 +47,17 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
   void _onTap(int index) => setState(() => this._index = index);
 
+  // iniStateではcontextにアクセスできない
+  @override
+  void didChangeDependencies() {
+    Admob.setup(context);
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final bottomPadding = MediaQuery.of(context).padding.bottom;
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          Strings.bingo,
-        ),
-      ),
+      appBar: AppBar(title: Text(Strings.bingo)),
       body: _widgets.elementAt(_index),
       bottomNavigationBar: Wrap(
         children: [
@@ -74,10 +73,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
             type: BottomNavigationBarType.fixed,
           ),
           Container(
-            height:
-                Admob.height(context) + MediaQuery.of(context).padding.bottom,
-            color: Colors.black,
-          ),
+              height: Admob.banner.size.height.toDouble() +
+                  MediaQuery.of(context).padding.bottom,
+              color: Theme.of(context).scaffoldBackgroundColor),
         ],
       ),
     );
