@@ -56,27 +56,35 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(Strings.bingo)),
-      body: _widgets.elementAt(_index),
-      bottomNavigationBar: Wrap(
-        children: [
-          BottomNavigationBar(
-            items: [
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.event), label: Strings.bingo),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.confirmation_number), label: Strings.draw),
-            ],
-            currentIndex: _index,
-            onTap: _onTap,
-            type: BottomNavigationBarType.fixed,
-          ),
-          Container(
-              height: Admob.banner.size.height.toDouble() +
-                  MediaQuery.of(context).padding.bottom,
-              color: Theme.of(context).scaffoldBackgroundColor),
-        ],
+    return MediaQuery.removePadding(
+      context: context,
+      removeBottom: true,
+      child: Scaffold(
+        appBar: AppBar(title: Text(Strings.bingo)),
+        body: _widgets.elementAt(_index),
+        bottomNavigationBar: Wrap(
+          children: [
+            BottomNavigationBar(
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.event),
+                  label: Strings.bingo,
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.confirmation_number),
+                  label: Strings.draw,
+                ),
+              ],
+              currentIndex: _index,
+              onTap: _onTap,
+              type: BottomNavigationBarType.fixed,
+            ),
+            Container(
+                height: Admob.banner.size.height.toDouble() +
+                    MediaQuery.of(context).padding.bottom,
+                color: Theme.of(context).scaffoldBackgroundColor),
+          ],
+        ),
       ),
     );
   }
