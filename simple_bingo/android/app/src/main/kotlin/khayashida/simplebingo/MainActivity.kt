@@ -1,4 +1,4 @@
-package jp.co.asx.simplebingo
+package khayashida.simplebingo
 
 import io.flutter.embedding.android.FlutterActivity
 

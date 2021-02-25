@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jp.co.asx.simplebingo">
+    package="khayashida.simplebingo">
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
          In most cases you can leave this as-is, but you if you want to provide
@@ -11,7 +11,7 @@
         android:label="simpleBingo"
         android:icon="@mipmap/ic_launcher">
         <activity
-            android:name="jp.co.asx.simplebingo.MainActivity"
+            android:name="khayashida.simplebingo.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
