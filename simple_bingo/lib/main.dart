@@ -27,15 +27,17 @@ class SimpleBingo extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            brightness: Brightness.light,
-            primarySwatch: Colors.amber,
-            buttonColor: Colors.amber,
-            textTheme: TextTheme(bodyText2: TextStyle(color: Colors.black87))),
+          brightness: Brightness.light,
+          primarySwatch: Colors.amber,
+          buttonColor: Colors.amber,
+          textTheme: TextTheme(bodyText2: TextStyle(color: Colors.black87)),
+        ),
         darkTheme: ThemeData(
-            brightness: Brightness.dark,
-            primarySwatch: Colors.amber,
-            toggleableActiveColor: Colors.amber,
-            accentColor: Colors.amber),
+          brightness: Brightness.dark,
+          primarySwatch: Colors.amber,
+          toggleableActiveColor: Colors.amber,
+          accentColor: Colors.amber,
+        ),
         home: BottomNavigation());
   }
 }
