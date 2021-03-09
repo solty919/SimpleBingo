@@ -30,8 +30,10 @@ class BingoModel with ChangeNotifier {
   }
 
   /// チェックを反転させる
-  void toggle(Square square) {
+  void toggle(Square square) async {
     square.isCheck = !square.isCheck;
+    Box<Chart> box = await Hive.openBox<Chart>(Keys.db);
+    box.put(Keys.chart, Chart()..squares = squares);
     notifyListeners();
   }
 
