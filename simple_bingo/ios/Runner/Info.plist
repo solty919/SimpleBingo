@@ -50,5 +50,7 @@
           <string>cstr6suwn9.skadnetwork</string>
         </dict>
       </array>
+      <key>NSUserTrackingUsageDescription</key>
+      <string>このアプリはAdネットワークの最適化を行います</string>
 </dict>
 </plist>
