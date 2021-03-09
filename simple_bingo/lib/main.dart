@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-///広告OFF
-bool isAd = false;
+///広告ON
+bool isAd = true;
 
 void main() async {
   await Hive.initFlutter();
